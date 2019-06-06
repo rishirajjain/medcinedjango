@@ -1,0 +1,2 @@
+# medcinedjango
+medicines search directory

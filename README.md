@@ -1,4 +1,4 @@
-# medcinedjango
+# medicine search engine
 
 #Open settings.py from meds folder, look for databases section and change the password for mysql in your computer.
 #check if this database is available in mysql in your computer named 'drgipatel_bor1'.

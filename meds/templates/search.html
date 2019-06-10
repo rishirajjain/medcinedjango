@@ -5,9 +5,7 @@
 <title>Search result</title>
 </head>
 <style>
-body{
-   
-}
+
 </style>
 <body>
 
@@ -15,7 +13,7 @@ body{
 
 <!--Search-->
 <form method="GET" action="" id="searchform">
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-left">
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-justified">
 <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
 <i class="material-icons">search</i>
 </label>
@@ -24,26 +22,32 @@ body{
  <input class="mdl-textfield__input" id="fixed-header-drawer-exp" name="q" type="text" value="{{ request.GET.q }}" placeholder="Search..."/>
 
 </div>
+
 </form>
-
-
+{%if f == 0 %}
+<p><br>No results found!</p>
+{%else%}
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-  
+  <div><br></div>
   <thead>
     <tr>
-      <th class="mdl-data-table__cell--non-numeric">Book Name</th>
-      <th>Medicine</th>
-      <th>Details</th>
+      <th class="mdl-data-table__cell--non-numeric">Medicine</th>
+      <th class="mdl-data-table__cell--non-numeric">Section</th>
+      <th class="mdl-data-table__cell--non-numeric">Details</th>
     </tr>
   </thead>
-  {% for x in posts %}
   <tbody>
+{% for x in posts %}
     <tr>
-      <td class="mdl-data-table__cell--non-numeric">{{x.bookName}}</td>
-      <td>{{x.medName}}</td>
-      <td>{{x.medDetails}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{x.medicine}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{x.section}}</td>
+      {%for fr in x.meta.highlight.details%}
+     
+      <td class="mdl-data-table__cell--non-numeric"><div>{{fr|safe}}</div></td>
+      {%endfor%}
     </tr>
 {% endfor %}
+{%endif%}
   </tbody>
 </table>
 </body>

@@ -1,15 +1,15 @@
 from django_elasticsearch_dsl import DocType, Index
-from medicines.models import Medicines
+from medicines.models import BoerickeJoints
 
-medicine = Index('medicine')
+medic = Index('medic')
 
-@medicine.doc_type
+@medic.doc_type
 class PostDocument(DocType):
     class Meta:
-        model = Medicines
+        model = BoerickeJoints
 
         fields = [
-            'bookName',
-            'medName',
-            'medDetails',
+            'medicine',
+            'section',
+            'details',
         ]

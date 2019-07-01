@@ -1,0 +1,39 @@
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<title>List of Medicines</title>
+</head>
+<style>
+  
+  
+  
+</style>
+<body>
+
+<div class="table">
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
+  
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Book Name</th>
+      <th class="mdl-data-table__cell--non-numeric">Medicine</th>
+      <th class="mdl-data-table__cell--non-numeric">Section</th>
+      <th class="mdl-data-table__cell--non-numeric">Details</th>
+
+    </tr>
+  </thead>
+  {% for x in object %}
+  <tbody>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">{{x.bookName}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{x.medName}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{x.section}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{x.medDetails}}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+</div>
+</body>
